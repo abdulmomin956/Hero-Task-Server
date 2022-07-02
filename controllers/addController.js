@@ -7,26 +7,21 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 const handleAdd = async (req, res) => {
     const docs = req.body;
-    console.log(docs);
+    // console.log(docs);
     try {
         await client.connect();
         const taskCollection = client.db("TaskDB").collection("tasks");
 
-        // create a document to insert
-        const doc = {
-            title: "Record of a Shriveled Datum",
-            description: "No bytes, no problem. Just insert a document, in MongoDB",
-        }
-        const result = await taskCollection.insertOne(doc);
+        const result = await taskCollection.insertOne(docs);
         res.send(result)
     } catch (err) {
-        res.send(err)
+        res.sendStatus(500)
     }
     finally {
         await client.close();
     }
 }
 
-// run().catch(console.dir);
+
 
 module.exports = { handleAdd };

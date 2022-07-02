@@ -13,6 +13,7 @@ app.use('/', require('./routes/root'))
 app.use('/add', require('./routes/add'))
 app.use('/all-data', require('./routes/allData'))
 app.use('/update-data', require('./routes/update'))
+app.use('/delete', require('./routes/delete'))
 
 // mongodb 
 const { MongoClient, ServerApiVersion } = require('mongodb');

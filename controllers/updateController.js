@@ -12,7 +12,7 @@ const handleUpdate = async (req, res) => {
         const result = await taskCollection.updateOne({ _id: ObjectId(id) }, { $set: data })
         res.send(result)
     } catch (err) {
-        res.send(err)
+        res.sendStatus(500)
     }
 }
 
