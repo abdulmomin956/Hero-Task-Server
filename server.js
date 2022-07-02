@@ -12,6 +12,7 @@ app.use(cors())
 app.use('/', require('./routes/root'))
 app.use('/add', require('./routes/add'))
 app.use('/all-data', require('./routes/allData'))
+app.use('/update-data', require('./routes/update'))
 
 // mongodb 
 const { MongoClient, ServerApiVersion } = require('mongodb');
